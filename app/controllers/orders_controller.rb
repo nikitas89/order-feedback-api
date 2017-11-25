@@ -5,5 +5,5 @@ class OrdersController < ApplicationController
     def show
       render json: DeliveryOrder.find(params[:id])
     end
-  
+    
 end

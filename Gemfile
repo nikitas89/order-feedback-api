@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
+gem 'shoulda', '~> 3.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
@@ -27,6 +28,7 @@ gem 'puma', '~> 3.7'
 # gem 'rack-cors'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.6'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
