@@ -9,46 +9,27 @@ class DeliveryOrder < ApplicationRecord
   end
 
   def delivery_time
-    str = serving_datetime.to_s.split(' ')[1]
-    "#{str}"
+    # format: "11:00–11:30AM" #"11:30–12:00AM"
+    t = serving_datetime
+    # puts t.strftime("%I, %p, %M")
+    hr = t.strftime("%I").to_i
+    min = t.strftime("%M").to_i
+    meridian=t.strftime("%p")
+    trailing_min = ""
+    hrs_display =""
+    if min<31
+      trailing_min = "#{hr}:00–#{hr}:30"
+      hrs_display  = trailing_min << meridian
+    elsif hr<12
+      trailing_min = "#{hr}:30–#{hr+1}:00"
+      hrs_display  = trailing_min << meridian
+    else
+      trailing_min = "12:30–1:00"
+        hrs_display  = trailing_min << "PM"
+    end
+    # puts hrs_display
+    "#{hrs_display}"
   end
-  #
-  # def as_json(options={})
-  #   super({
-  #     only: [:order_id],
-  #     methods: [:delivery_date, :delivery_time],
-  #     include: [:order_items]
-  #   }.merge(options || {}))
-  # end
+
 
 end
-
-
-
-# do merge from model of meal etc
-# methods: [:delivery_date, :delivery_time]
-# def as_json(options={})
-#   super(include: {order_items:{
-#                     include: {meal:{only: :name}},
-#                     only: [:quantity,:unit_price],
-#                   }
-#                 },
-#     only: [:order_id],
-#   methods: [:delivery_date, :delivery_time])
-# end
-
-
-# def as_json(options={})
-#   super(
-# { only: [:order_id],
-#   methods: [:delivery_date, :delivery_time],
-# include: order_items }.merge(options || {})
-# )
-# end
-
-
-#
-# include: {order_items:{
-#                   only: [:quantity,:unit_price],
-#                 }
-#               },

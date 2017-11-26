@@ -3,18 +3,11 @@ class OrderItem < ApplicationRecord
   belongs_to :delivery_order
   validates_presence_of :quantity,:unit_price
 
+
   def total_price
     total = quantity* unit_price
     "#{total}"
   end
 
-
-  # def as_json(options={})
-  #   super({
-  #     only: [:quantity],
-  #     include: [:meals]
-  #   }.merge(options || {})
-  #   )
-  # end
 
 end
