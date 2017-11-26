@@ -1,11 +1,20 @@
 class OrderItem < ApplicationRecord
-  belongs_to :meal, optional: true
-  belongs_to :delivery_order, optional: true
+  belongs_to :meal
+  belongs_to :delivery_order
+  validates_presence_of :quantity,:unit_price
 
-  def as_json(options={})
-    super(include: [:meals],
-      except: [:id, :created_at,:delivery_order_id, :updated_at]
-    )
+  def total_price
+    total = quantity* unit_price
+    "#{total}"
   end
+
+
+  # def as_json(options={})
+  #   super({
+  #     only: [:quantity],
+  #     include: [:meals]
+  #   }.merge(options || {})
+  #   )
+  # end
 
 end
