@@ -30,6 +30,19 @@ class DeliveryOrder < ApplicationRecord
     # puts hrs_display
     "#{hrs_display}"
   end
-
+  #
+  # def as_json(options={})
+  # super(only: :order_id,
+  #   methods: [:delivery_date, :delivery_time])
+  # end
+  #
+  #
+    # def as_json(options={})
+    # super(  only: :order_id, methods: [:delivery_date, :delivery_time],
+    #     include: { order_items: {
+    #       only: :quantity,
+    #       methods: [:total_price, :mealName]
+    #     }})
+    # end
 
 end

@@ -9,5 +9,9 @@ class OrderItem < ApplicationRecord
     "#{total}"
   end
 
+  def name
+    name = meal.name
+    "#{name}"
+  end
 
 end

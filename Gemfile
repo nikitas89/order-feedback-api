@@ -7,6 +7,7 @@ end
 
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 gem 'shoulda', '~> 3.5'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
