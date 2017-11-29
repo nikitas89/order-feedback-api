@@ -1,5 +1,6 @@
 class DeliveryOrder < ApplicationRecord
   has_many :order_items
+  has_one :feedback, as: :ratable_type
   validates_presence_of :order_id, :serving_datetime
   validates_uniqueness_of :order_id
 
