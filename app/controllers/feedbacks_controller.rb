@@ -17,7 +17,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    if Feedback.last.id == nil
+    if Feedback.all.length == 0
       new_ratable_id = 1
     else
       new_ratable_id = Feedback.last.id + 1
