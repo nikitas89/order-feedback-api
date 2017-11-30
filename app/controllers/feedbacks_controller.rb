@@ -17,14 +17,19 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    new_ratable_id = Feedback.last.ratable_id + 1
+    if Feedback.last.id == nil
+      new_ratable_id = 1
+    else
+      new_ratable_id = Feedback.last.id + 1
+    end
+
     Feedback.create(ratable_type_type:'DeliveryOrder', ratable_id:new_ratable_id, ratable_type_id: params[:order_id], comment:params[:delivery])
     if params[:feedbacks].length > 0
       mealFeedbacks = params[:feedbacks]
       mealFeedbacks.each do |comment|
           meal_id  = comment[:id].to_i
           feedback = Feedback.new
-          feedback.ratable_id = Feedback.last.ratable_id + 1
+          feedback.ratable_id = Feedback.last.id + 1
           feedback.ratable_type_type = 'OrderItem'
           feedback.ratable_type_id =  meal_id
           feedback.comment = comment[:value]
