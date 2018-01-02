@@ -1,14 +1,17 @@
-# Nikita Sinhal's Ordiez
-###heroku:
+# Nikita Sinhal's Order Feedback API
+### heroku:
 * Single Order [https://ordiez.herokuapp.com/orders/1](https://ordiez.herokuapp.com/orders/1)
-* All orders [https://ordiez.herokuapp.com/orders/](https://ordiez.herokuapp.com/orders/)
+* All orders [https://ordiez.herokuapp.com/orders](https://ordiez.herokuapp.com/orders/)
 
-*   Configuration: $ bundle install
 
-*   Database creation: $ rails db:migrate
+```
+   Configuration: $ bundle install
 
-*   Database initialization: $ rails db:seed
+   Database creation: $ rails db:migrate
 
-*   Test instructions: $ rspec spec
+   Database initialization: $ rails db:seed
 
-*   Deployment instructions: $ rails server
+   Test instructions: $ rspec spec
+
+   Deployment instructions: $ rails server
+```
