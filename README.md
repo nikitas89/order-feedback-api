@@ -27,7 +27,7 @@ rspec
 
 
 ## Models
-![ERD](/public/erd.png "ERD")
+![ERD](./public/erd.png "ERD")
 
 
 ## Sample API JSON response
